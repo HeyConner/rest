@@ -43,5 +43,30 @@
 
             $this->assertEquals([$test_cuisine, $test_cuisine2], $result);
         }
+
+        function test_getId()
+        {
+            $type = "italian";
+            $id = 1;
+            $test_cuisine = new Cuisine($type, $id);
+
+            $result = $test_cuisine->getId();
+
+            $this->assertEquals(1, $result);
+        }
+
+        function test_find(){
+            $type = "italian";
+            $type2 = "vegan";
+            $test_cuisine = new Cuisine($type);
+            $test_cuisine->save();
+            $test_cuisine2 = new Cuisine($type2);
+            $test_cuisine2->save();
+
+            $id = $test_cuisine->getId();
+            $result = Cuisine::find($id);
+
+            $this->assertEquals($test_cuisine, $result);
+        }
     }
  ?>
