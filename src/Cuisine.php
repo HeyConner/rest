@@ -15,6 +15,11 @@
             return $this->type;
         }
 
+        function setType($new_type)
+        {
+            $this->type = (string) $new_type;
+        }
+
         function getId(){
             return $this->id;
         }
