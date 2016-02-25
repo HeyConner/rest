@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Where to Eat?</title>
+    </head>
+    <body>
+        <div>
+            <h1>Add a Restaurant and give it a Cuisine Type:</h1>
+        </div>
+        <div>
+            <form class="form-group" action="/results" method="post">
+                <div>
+                    <label for="cuisine">Cuisine:</label>
+                    <input type="text" name="cuisine" id="cuisine">
+                </div>
+                <div>
+                    <label for="restaurant">Restaurant:</label>
+                    <input type="text" name="restaurant" id="restaurant">
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" id="description">
+                </div>
+                <button type="submit">Yes.</button>
+            </form>
+            <div>
+                {% if results is not empty %}
+                    <h3>Cuisine = {{ results.getType }}</h3>
+                {% endif %}
+            </div>
+
+
+        </div>
+    </body>
+</html>

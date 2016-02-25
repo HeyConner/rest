@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Restaurant</title>
+    </head>
+    <body>
+        <h1>HI</h1>
+        {% for results as result %}
+            <h4>{{ result.getName }}</h4>
+            <h4>{{ result.getDescription }}</h4>
+        {% endfor %}
+    </body>
+</html>
