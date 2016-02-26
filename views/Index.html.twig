@@ -25,9 +25,18 @@
                 <button type="submit">Yes.</button>
             </form>
             <div>
-                {% if results is not empty %}
-                    <h3>Cuisine = {{ results.getType }}</h3>
+                {% if cuisines is not empty %}
+                    <h3>Cuisines:</h3>
+                    <ul>
+                        {% for cuisine in cuisines %}
+                            <li>{{ cuisine.getType }}</li>
+                        {% endfor %}
+                    </ul>
+                    <form action="/deleted" method="post">
+                        <button type="submit">Delete All</button>
+                    </form>
                 {% endif %}
+
             </div>
 
 

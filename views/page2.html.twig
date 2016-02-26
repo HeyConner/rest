@@ -5,9 +5,10 @@
     </head>
     <body>
         <h1>HI</h1>
-        {% for results as result %}
-            <h4>{{ result.getName }}</h4>
-            <h4>{{ result.getDescription }}</h4>
-        {% endfor %}
+        <h4>{{ results.getName }}</h4>
+        <h4>{{ results.getDescription }}</h4>
+        <form class="form-group" action="/">
+            <button type="submit">Home</button>
+        </form>
     </body>
 </html>

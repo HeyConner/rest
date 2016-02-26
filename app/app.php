@@ -18,14 +18,21 @@
     ));
 
     $app->get("/", function() use ($app){
-        return $app['twig']->render('Index.html.twig');
+        return $app['twig']->render('Index.html.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+    $app->post("/deleted", function() use ($app){
+        Cuisine::deleteAll();
+        return $app['twig']->render('Index.html.twig', array('cuisines' => Cuisine::getAll()));
     });
 
     $app->post("/results", function() use ($app){
-        $Restaurant = new Restaurant($_POST['restaurant'], $_POST['description']);
-        $new_restaurant = $Restaurant->save();
+        $restaurant = new Restaurant($_POST['restaurant'], $_POST['description']);
+        $cuisine = new Cuisine($_POST['cuisine']);
+        $cuisine->save();
+        $restaurant->save();
 
-        return $app['twig']->render('page2.html.twig', array('results' => Restaurant::getAll()));
+        return $app['twig']->render('page2.html.twig', array('results' => $restaurant));
     });
 
 
